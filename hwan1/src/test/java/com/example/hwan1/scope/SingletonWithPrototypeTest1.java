@@ -3,8 +3,8 @@ package com.example.hwan1.scope;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Scope;
 
@@ -39,6 +39,19 @@ public class SingletonWithPrototypeTest1 {
         assertThat(logic2).isEqualTo(2);
     }
 
+    @Test
+    void singletonClientUserPrototype2() {
+        AnnotationConfigApplicationContext ac
+            = new AnnotationConfigApplicationContext(ClientBean2.class, PrototypeBean.class);
+        ClientBean2 clientBean1 = ac.getBean(ClientBean2.class);
+        int logic1 = clientBean1.logic();
+        assertThat(logic1).isEqualTo(1);
+
+        ClientBean2 clientBean2 = ac.getBean(ClientBean2.class);
+        int logic2 = clientBean2.logic();
+        assertThat(logic2).isEqualTo(1);
+    }
+
     // SignleTon 내부에서 Prototype을 요청하며 안된다.
     @Scope("singleton")
     static class ClientBean {
@@ -61,10 +74,10 @@ public class SingletonWithPrototypeTest1 {
     static class ClientBean2 {
 
         @Autowired
-        ApplicationContext context;
+        private ObjectProvider<PrototypeBean> prototypeBeansProvider;
 
         public int logic() {
-            PrototypeBean prototypeBean = context.getBean(PrototypeBean.class);
+            PrototypeBean prototypeBean = prototypeBeansProvider.getObject();
             prototypeBean.addCount();
             return prototypeBean.getCount();
         }

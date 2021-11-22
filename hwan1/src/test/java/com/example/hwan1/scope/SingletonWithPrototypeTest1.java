@@ -56,6 +56,7 @@ public class SingletonWithPrototypeTest1 {
         }
     }
 
+    // 쓰려면 따로 빈을 주입받아서 써야한다.
     @Scope("singleton")
     static class ClientBean2 {
 

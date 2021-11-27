@@ -1,9 +1,8 @@
-package com.example.hwan1.hello.core.service;
+package com.example.hwan1.hello.core.order;
 
 import com.example.hwan1.hello.core.discount.DisCountPolicy;
-import com.example.hwan1.hello.core.domain.Order;
-import com.example.hwan1.hello.core.repository.MemberRepository;
-import java.lang.reflect.Member;
+import com.example.hwan1.hello.core.member.Member;
+import com.example.hwan1.hello.core.member.repository.MemberRepository;
 
 public class OrderServiceImpl implements OrderService {
 

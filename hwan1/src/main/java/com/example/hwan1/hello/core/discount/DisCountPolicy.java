@@ -1,6 +1,7 @@
 package com.example.hwan1.hello.core.discount;
 
-import java.lang.reflect.Member;
+
+import com.example.hwan1.hello.core.member.Member;
 
 public class DisCountPolicy {
 

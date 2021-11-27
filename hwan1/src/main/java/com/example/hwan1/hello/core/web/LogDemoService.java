@@ -1,4 +1,4 @@
-package com.example.hwan1.hello.core.service;
+package com.example.hwan1.hello.core.web;
 
 import com.example.hwan1.hello.core.common.MyLogger;
 import lombok.RequiredArgsConstructor;

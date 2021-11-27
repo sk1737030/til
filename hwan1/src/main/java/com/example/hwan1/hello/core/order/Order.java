@@ -1,4 +1,4 @@
-package com.example.hwan1.hello.core.domain;
+package com.example.hwan1.hello.core.order;
 
 public class Order {
 

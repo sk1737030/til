@@ -1,7 +1,6 @@
 package com.example.hwan1.hello.core.web;
 
 import com.example.hwan1.hello.core.common.MyLogger;
-import com.example.hwan1.hello.core.service.LogDemoService;
 import javax.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

@@ -1,9 +1,9 @@
 package com.example.hwan1.singleton;
 
 import com.example.hwan1.hello.core.AppConfig;
-import com.example.hwan1.hello.core.repository.MemberRepository;
-import com.example.hwan1.hello.core.service.MemberServiceImpl;
-import com.example.hwan1.hello.core.service.OrderServiceImpl;
+import com.example.hwan1.hello.core.member.repository.MemberRepository;
+import com.example.hwan1.hello.core.member.MemberServiceImpl;
+import com.example.hwan1.hello.core.order.OrderServiceImpl;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -34,7 +34,7 @@ class ConfigurationSingletonTest {
     void configurationDeep() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
         AppConfig bean = ac.getBean(AppConfig.class);
-        
+
         System.out.println("bean = " + bean.getClass());
     }
 

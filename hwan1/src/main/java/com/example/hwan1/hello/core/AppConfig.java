@@ -2,11 +2,11 @@ package com.example.hwan1.hello.core;
 
 import com.example.hwan1.hello.core.discount.DisCountPolicy;
 import com.example.hwan1.hello.core.discount.RateDiscountPolicy;
-import com.example.hwan1.hello.core.repository.MemoryMemberRepository;
-import com.example.hwan1.hello.core.service.MemberService;
-import com.example.hwan1.hello.core.service.MemberServiceImpl;
-import com.example.hwan1.hello.core.service.OrderService;
-import com.example.hwan1.hello.core.service.OrderServiceImpl;
+import com.example.hwan1.hello.core.member.repository.MemoryMemberRepository;
+import com.example.hwan1.hello.core.member.MemberService;
+import com.example.hwan1.hello.core.member.MemberServiceImpl;
+import com.example.hwan1.hello.core.order.OrderService;
+import com.example.hwan1.hello.core.order.OrderServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

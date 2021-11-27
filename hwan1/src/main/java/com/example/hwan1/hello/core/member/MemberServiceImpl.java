@@ -1,7 +1,7 @@
-package com.example.hwan1.hello.core.service;
+package com.example.hwan1.hello.core.member;
 
-import com.example.hwan1.hello.core.repository.MemberRepository;
-import java.lang.reflect.Member;
+import com.example.hwan1.hello.core.member.MemberService;
+import com.example.hwan1.hello.core.member.repository.MemberRepository;
 
 public class MemberServiceImpl implements MemberService {
 

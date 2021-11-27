@@ -1,6 +1,4 @@
-package com.example.hwan1.hello.core.service;
-
-import com.example.hwan1.hello.core.domain.Order;
+package com.example.hwan1.hello.core.order;
 
 public interface OrderService {
 

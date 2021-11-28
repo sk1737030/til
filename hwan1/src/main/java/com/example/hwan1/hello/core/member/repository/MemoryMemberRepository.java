@@ -1,6 +1,6 @@
 package com.example.hwan1.hello.core.member.repository;
 
-import java.lang.reflect.Member;
+import com.example.hwan1.hello.core.member.Member;
 
 public class MemoryMemberRepository implements MemberRepository {
 

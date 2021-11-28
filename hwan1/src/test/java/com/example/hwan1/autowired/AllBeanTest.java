@@ -2,12 +2,15 @@ package com.example.hwan1.autowired;
 
 import com.example.hwan1.hello.core.config.AutoAppConfig;
 import com.example.hwan1.hello.core.discount.DisCountPolicy;
-import com.example.hwan1.hello.core.member.Member;
 import com.example.hwan1.hello.core.grade.Grade;
+import com.example.hwan1.hello.core.member.Member;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import java.util.List;
 import java.util.Map;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class AllBeanTest {
 
@@ -17,7 +20,10 @@ class AllBeanTest {
 
         DiscountService discountService = ac.getBean(DiscountService.class);
         Member userA = new Member(1L, "userA", Grade.VIP);
-        discountService.discount(userA, 10000, "fixDiscountPolicy");
+        int discountPrice = discountService.discount(userA, 10000, "fixDiscountPolicy");
+
+        assertThat(discountService).isInstanceOf(DiscountService.class);
+        assertThat(discountPrice).isEqualTo(1000);
     }
 
     static class DiscountService {
@@ -25,12 +31,11 @@ class AllBeanTest {
         private final Map<String, DisCountPolicy> policyMap;
         private final List<DisCountPolicy> policies;
 
-        public DiscountService(Map<String, DisCountPolicy> policyMap, List<DisCountPolicy> plicies) {
+        public DiscountService(Map<String, DisCountPolicy> policyMap, List<DisCountPolicy> policies) {
             this.policyMap = policyMap;
-            this.policies = plicies;
-
+            this.policies = policies;
             System.out.println("policyMap = " + policyMap);
-            System.out.println("plicies = " + plicies);
+            System.out.println("policies = " + policies);
         }
 
         public int discount(Member member, int price, String discountCode) {

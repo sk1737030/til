@@ -4,7 +4,17 @@ import com.example.hwan1.hello.core.grade.Grade;
 
 public class Member {
 
-    public Member(long l, String userA, Grade vip) {
+    private Long id;
+    private String userName;
+    private Grade grade;
 
+    public Member(Long id, String userName, Grade grade) {
+        this.id = id;
+        this.userName = userName;
+        this.grade = grade;
+    }
+
+    public Grade getGrade() {
+        return grade;
     }
 }

@@ -1,11 +1,10 @@
 package com.example.hwan1.autowired;
 
-import com.example.hwan1.hello.core.config.AutoAppConfig;
+import com.example.hwan1.hello.core.AutoAppConfig;
 import com.example.hwan1.hello.core.discount.DisCountPolicy;
 import com.example.hwan1.hello.core.grade.Grade;
 import com.example.hwan1.hello.core.member.Member;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import java.util.List;
 import java.util.Map;

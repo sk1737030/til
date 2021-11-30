@@ -2,6 +2,7 @@ package com.example.hwan1.hello.core.discount;
 
 import com.example.hwan1.hello.core.grade.Grade;
 import com.example.hwan1.hello.core.member.Member;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component

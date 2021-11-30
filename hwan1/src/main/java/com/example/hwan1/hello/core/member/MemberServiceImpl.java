@@ -1,12 +1,15 @@
 package com.example.hwan1.hello.core.member;
 
-import com.example.hwan1.hello.core.member.MemberService;
 import com.example.hwan1.hello.core.member.repository.MemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MemberServiceImpl implements MemberService {
 
     private final MemberRepository memberRepository;
 
+    @Autowired
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }

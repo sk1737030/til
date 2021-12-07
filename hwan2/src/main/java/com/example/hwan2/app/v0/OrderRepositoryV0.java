@@ -1,6 +1,6 @@
-package com.example.hwan2.app.vo;
+package com.example.hwan2.app.v0;
 
-public class OrderRepositoryVO {
+public class OrderRepositoryV0 {
 
     public void save(String itemId) {
         if(itemId.equals("ex")) {

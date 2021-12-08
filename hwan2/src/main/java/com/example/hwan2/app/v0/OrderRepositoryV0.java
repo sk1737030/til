@@ -1,5 +1,8 @@
 package com.example.hwan2.app.v0;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class OrderRepositoryV0 {
 
     public void save(String itemId) {

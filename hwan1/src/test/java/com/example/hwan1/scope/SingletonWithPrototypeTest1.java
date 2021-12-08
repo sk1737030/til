@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Scope;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class SingletonWithPrototypeTest1 {
+class SingletonWithPrototypeTest1 {
 
     @Test
     void prototypeFind() {
@@ -23,7 +23,7 @@ public class SingletonWithPrototypeTest1 {
         PrototypeBean prototypeBean2 = ac.getBean(PrototypeBean.class);
         prototypeBean2.addCount();
 
-        assertThat(prototypeBean2.getCount()).isEqualTo(2);
+        assertThat(prototypeBean2.getCount()).isEqualTo(1);
     }
 
     @Test

@@ -1,0 +1,36 @@
+plugins {
+    id 'com.epages.restdocs-api-spec' version '0.11.5'
+}
+
+group = 'com.example.commonresponse'
+version = '0.0.1'
+sourceCompatibility = '11'
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.mapstruct:mapstruct:1.4.2.Final'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    runtimeOnly 'com.h2database:h2'
+    runtimeOnly 'mysql:mysql-connector-java'
+
+    compileOnly 'org.projectlombok:lombok'
+
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+    testImplementation 'com.epages:restdocs-api-spec-mockmvc:0.15.2'
+}
+
+openapi3 {
+    server = 'https://api.exmaple.io'
+    title = 'OPEN-API'
+    description = 'OPEN API'
+    version = '0.1.0'
+    format = 'yaml'
+}

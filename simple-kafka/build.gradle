@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.kafka:spring-kafka:2.6.9'
+    implementation "javax.annotation:javax.annotation-api"
+    implementation "com.fasterxml.jackson.core:jackson-databind"
+
+    compileOnly 'org.projectlombok:lombok'
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.1"
+    annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.kafka:spring-kafka-test'
+}

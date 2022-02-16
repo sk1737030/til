@@ -8,4 +8,6 @@ public interface ProblemRepository extends JpaRepository<Member, Long> {
 
     @Query("SELECT distinct m FROM Member m join fetch m.orders")
     List<Member> findAllFetch();
+
+    Member findByMemberEmail(String memberEmail);
 }

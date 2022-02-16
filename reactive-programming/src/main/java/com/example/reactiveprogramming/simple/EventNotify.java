@@ -1,4 +1,4 @@
-package com.example.reactiveprogramming.flux;
+package com.example.reactiveprogramming.simple;
 
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;

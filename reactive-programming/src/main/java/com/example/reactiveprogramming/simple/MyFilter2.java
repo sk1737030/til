@@ -1,4 +1,4 @@
-package com.example.reactiveprogramming.flux;
+package com.example.reactiveprogramming.simple;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;

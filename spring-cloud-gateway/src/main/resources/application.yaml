@@ -1,0 +1,30 @@
+server:
+  port: 8001
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: '*'
+            allowedMethods:
+              - POST
+              - GET
+              - PUT
+              - OPTIONS
+              - DELETE
+      routes:
+        - id: a-service
+          uri: http://localhost:18083
+          predicates:
+            - Path=/aservice/**
+        - id: b-service
+          uri: http://localhost:18084
+          predicates:
+            - Path=/bservice/**
+
+
+logging:
+  level:
+    sun.rmi: info
+    root: debug

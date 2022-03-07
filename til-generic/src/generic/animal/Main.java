@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
 
+
         Pug pug = new Pug();
         Dog dog = pug;
 
@@ -16,6 +17,13 @@ public class Main {
 
         Sitter sitter = new Sitter();
         House<Pug> pugHouse = new House<>();
-        //sitter.giveSnack(pugHouse, new Snack());
+        House<Siba> sibaHouse = new House<>();
+        /*sitter.giveSnack(pugHouse, new Snack()); // 컴파일 error가 아니라면!
+        sitter.giveSnack(sibaHouse, new Snack()); // 컴파일 error가 아니라면!*/
+
+        House<Dog> dogHouse = new House<>();
+        //dogHouse.add(pugHouse); // Compile Error
+        //dogHouse.add(sibaHouse); // Compile Error
+
     }
 }

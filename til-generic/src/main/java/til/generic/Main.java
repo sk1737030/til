@@ -1,3 +1,5 @@
+package til.generic;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +17,6 @@ public class Main {
             String substring = ((String) o).substring(0, 1);
             System.out.println(substring);
         }
-
 
         List<String> list = new ArrayList<>();
         list.add("pub");

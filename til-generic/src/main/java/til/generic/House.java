@@ -1,4 +1,4 @@
-package generic.animal;
+package til.generic;
 
 import java.util.ArrayList;
 import java.util.Iterator;

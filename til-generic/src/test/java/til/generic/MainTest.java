@@ -26,5 +26,16 @@ class MainTest {
         // dogHouse.push(new Pug()); // Compile Error
     }
 
+    @DisplayName("반공변")
+    @Test
+    void contravariant() {
+        // 반공변
+        House<Pug> pug = new House<>();
+        House<? super Pug> pugh = pug;
+        pugh.push(new Pug());
 
+        House<Dog> dog = new House<>();
+        House<? super Pug> pughh = dog;
+        pughh.push(new Pug());
+    }
 }

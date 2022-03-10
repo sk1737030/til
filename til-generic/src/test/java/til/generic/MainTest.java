@@ -2,6 +2,9 @@ package til.generic;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 class MainTest {
 
@@ -54,6 +57,16 @@ class MainTest {
         pugh2.push(new Pug());
         // pugh2.push(new Dog()); // Compile Error
         // Pug housePug = pugh2.get(0); // Compile Error
+
+    }
+
+    @DisplayName("자바에서는 어디서 쓰일까")
+    @Test
+    void commonExample() {
+        List<Integer> src = new ArrayList<>();
+        List<Number> dest = new ArrayList<>();
+
+        Collections.copy(dest, src);
     }
 
 }

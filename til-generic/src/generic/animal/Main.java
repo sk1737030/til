@@ -1,13 +1,8 @@
 package generic.animal;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
 
     public static void main(String[] args) {
-
-
 
         Pug pug = new Pug();
         Dog dog = pug;
@@ -24,6 +19,14 @@ public class Main {
         House<Dog> dogHouse = new House<>();
         //dogHouse.add(pugHouse); // Compile Error
         //dogHouse.add(sibaHouse); // Compile Error
+
+        // 공변
+        Sitter covariant = new Sitter();
+        House<Pug> pug2 = new House<>();
+        covariant.giveSnack(pug2, new Snack());
+
+        House<Siba> siba2 = new House<>();
+        covariant.giveSnack(siba2, new Snack());
 
     }
 }

@@ -1,8 +1,10 @@
 package generic.animal;
 
+import java.util.List;
+
 public class Sitter {
 
-    public void giveSnack(House<Dog> house, Snack snack) {
-
+    public void giveSnack(House<? extends Dog> dog, Snack snack) {
+        List<? extends Dog> all = dog.getAll();
     }
 }

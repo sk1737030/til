@@ -32,4 +32,8 @@ public class House<T> implements Iterable{
     public Spliterator spliterator() {
         return Iterable.super.spliterator();
     }
+
+    public List<T> getAll() {
+        return null;
+    }
 }

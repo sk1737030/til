@@ -38,4 +38,17 @@ class MainTest {
         House<? super Pug> pughh = dog;
         pughh.push(new Pug());
     }
+
+    @DisplayName("반공변 문제")
+    @Test
+    void problemOfContravariant() {
+        // 반공변
+        House<Pug> pug = new House<>();
+        House<? super Pug> pugh = pug;
+        pugh.push(new Pug());
+
+        // House<Pug> hosuePug = pugh.get(0); // Compile Error
+
+    }
+
 }

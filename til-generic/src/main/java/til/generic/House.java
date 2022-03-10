@@ -36,4 +36,8 @@ public class House<T> implements Iterable{
     public List<T> getAll() {
         return null;
     }
+
+    public void push(T pug) {
+        lists.add(pug);
+    }
 }

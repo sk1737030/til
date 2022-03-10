@@ -43,12 +43,17 @@ class MainTest {
     @Test
     void problemOfContravariant() {
         // 반공변
-        House<Pug> pug = new House<>();
-        House<? super Pug> pugh = pug;
+        House<Dog> dog = new House<>();
+        House<? super Dog> pugh = dog;
         pugh.push(new Pug());
+        pugh.push(new Dog());
+        // Pug housePug = pugh.get(0); // Compile Error
 
-        // House<Pug> hosuePug = pugh.get(0); // Compile Error
-
+        House<Pug> pug = new House<>();
+        House<? super Pug> pugh2 = pug;
+        pugh2.push(new Pug());
+        // pugh2.push(new Dog()); // Compile Error
+        // Pug housePug = pugh2.get(0); // Compile Error
     }
 
 }

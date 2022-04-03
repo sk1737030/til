@@ -1,0 +1,29 @@
+server:
+  port: 18080
+spring:
+  application:
+    name: api-gateway
+  cache:
+    type: redis
+  redis:
+    host: localhost
+    port: 6379
+  cloud:
+    gateway:
+      default-filters:
+        - name: RequestRateLimiter
+          args:
+          # rate-limitter: "#{@UserKeyResolver}"
+            key-resolver: "#{@apiKeyResolve}"
+            deny-empty-key: false
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods: "*"
+      routes:
+        - id: demo-resource-server
+          uri: http://localhost:19000
+          predicates:
+            - Path=/demo/**

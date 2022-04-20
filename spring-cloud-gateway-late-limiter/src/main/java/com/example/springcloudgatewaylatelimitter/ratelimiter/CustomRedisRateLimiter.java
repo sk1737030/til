@@ -34,8 +34,6 @@ public class CustomRedisRateLimiter extends AbstractRateLimiter<CustomRedisRateL
     public static final String BURST_CAPACITY_HEADER = "X-RateLimit-Burst-Capacity";
     public static final String REQUESTED_TOKENS_HEADER = "X-RateLimit-Requested-Tokens";
 
-    private static final String UNDER_BAR = "_";
-
     private final Config getConfig = new Config(1, 10, 1);
     private final Config postConfig = new Config(1, 1, 1);
 

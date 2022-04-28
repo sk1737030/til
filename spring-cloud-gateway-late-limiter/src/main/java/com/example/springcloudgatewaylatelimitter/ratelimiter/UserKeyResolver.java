@@ -10,6 +10,12 @@ public class UserKeyResolver {
 
     @Bean
     public KeyResolver apiKeyResolve() {
-        return exchange -> Mono.just(exchange.getRequest().getQueryParams().getFirst("userId"));
+        return exchange -> {
+            if (!exchange.getRequest().getQueryParams().containsKey("userId")) {
+                return Mono.just("____EMPTY_KEY__");
+            }
+
+            return Mono.just(exchange.getRequest().getQueryParams().getFirst("userId"));
+        };
     }
 }

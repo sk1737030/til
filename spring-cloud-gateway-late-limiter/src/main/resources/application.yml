@@ -15,7 +15,7 @@ spring:
           args:
             rate-limitter: "#{@customRedisRateLimiter}"
             key-resolver: "#{@apiKeyResolve}"
-            deny-empty-key: false
+            deny-empty-key: true
       globalcors:
         corsConfigurations:
           '[/**]':

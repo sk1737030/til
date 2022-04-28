@@ -12,7 +12,7 @@ public class UserKeyResolver {
     public KeyResolver apiKeyResolve() {
         return exchange -> {
             if (!exchange.getRequest().getQueryParams().containsKey("userId")) {
-                return Mono.just("____EMPTY_KEY__");
+                return Mono.justOrEmpty("____EMPTY_KEY__");
             }
 
             return Mono.just(exchange.getRequest().getQueryParams().getFirst("userId"));

@@ -13,7 +13,7 @@ spring:
       default-filters:
         - name: RequestRateLimiter
           args:
-            # rate-limitter: "#{@UserKeyResolver}"
+            rate-limitter: "#{@customRedisRateLimiter}"
             key-resolver: "#{@apiKeyResolve}"
             deny-empty-key: false
       globalcors:

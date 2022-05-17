@@ -39,7 +39,7 @@ public class KafkaRepartitioningApplication implements CommandLineRunner {
                 .build();
     }
 
-    @KafkaListener(topics = "myTopic", id = "my.group.id")
+    @KafkaListener(topics = "myTopic", id = "my.group.id", concurrency = "1")
     void consumer(ConsumerRecord<String, String> in) {
         System.out.println("Topic");
         System.out.println(in.key() + " : " + in.value());

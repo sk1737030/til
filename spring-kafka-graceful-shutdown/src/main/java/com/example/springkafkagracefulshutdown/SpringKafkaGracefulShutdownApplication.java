@@ -28,7 +28,7 @@ public class SpringKafkaGracefulShutdownApplication implements CommandLineRunner
     @Override
     public void run(String... args) {
         for (int i = 0; i < 9; i++) {
-            this.kafkaTemplate.send("myTopic", "foo" + i);
+            this.kafkaTemplate.send("myTopic", 0, null, "foo" + i);
         }
     }
 

@@ -1,6 +1,7 @@
 package com.example.springkafkagracefulshutdown;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,6 +16,7 @@ import java.util.Map;
 
 @SpringBootApplication
 @RequiredArgsConstructor
+@Slf4j
 public class SpringKafkaGracefulShutdownApplication implements CommandLineRunner {
 
     private final KafkaTemplate<String, Object> kafkaTemplate;
@@ -47,8 +49,9 @@ public class SpringKafkaGracefulShutdownApplication implements CommandLineRunner
     }
 
     @KafkaListener(topics = "myTopic", id = "my.group.id", concurrency = "1")
-    void listenTopic() {
-
+    void listenTopic() throws InterruptedException {
+        log.info("Topic Consuming");
+        Thread.sleep(10000L);
     }
 
 

@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.annotation.TopicPartition;
 import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.core.KafkaAdmin;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -51,7 +52,8 @@ public class SpringKafkaGracefulShutdownApplication implements CommandLineRunner
     @KafkaListener(topics = "myTopic", id = "my.group.id", concurrency = "1")
     void listenTopic() throws InterruptedException {
         log.info("Topic Consuming");
-        Thread.sleep(10000L);
+//        Thread.sleep(10000L);
+        Thread.sleep(100L);
     }
 
 

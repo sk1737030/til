@@ -8,10 +8,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.kafka.annotation.TopicPartition;
 import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.core.KafkaAdmin;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.KafkaHeaders;
+import org.springframework.messaging.handler.annotation.Header;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,9 +29,9 @@ public class SpringKafkaGracefulShutdownApplication implements CommandLineRunner
 
     @Override
     public void run(String... args) {
-        for (int i = 0; i < 9; i++) {
-            this.kafkaTemplate.send("myTopic", 0, null, "foo" + i);
-        }
+//        for (int i = 0; i < 9; i++) {
+//            this.kafkaTemplate.send("test", 0, null, "foo" + i);
+//        }
     }
 
     @Bean
@@ -43,18 +44,16 @@ public class SpringKafkaGracefulShutdownApplication implements CommandLineRunner
 
     @Bean
     public KafkaAdmin.NewTopics topic() {
-        return new KafkaAdmin.NewTopics(TopicBuilder.name("myTopic")
-            .partitions(3)
+        return new KafkaAdmin.NewTopics(TopicBuilder.name("test")
+            .partitions(1)
             .replicas(1)
             .build());
     }
 
-    @KafkaListener(topics = "myTopic", id = "my.group.id", concurrency = "1")
-    void listenTopic() throws InterruptedException {
-        log.info("Topic Consuming");
-//        Thread.sleep(10000L);
-        Thread.sleep(100L);
+    @KafkaListener(topics = "test", id = "test.offset.1", concurrency = "1")
+    void listenTopic(@Header(KafkaHeaders.OFFSET) long offset) throws InterruptedException {
+        log.info("Topic Consuming: " + offset);
+        //Thread.sleep(10000L);
+        Thread.sleep(1000L);
     }
-
-
 }

@@ -1,5 +1,10 @@
 package com.clean.architecture.hexagonal.account.application.port.out;
 
-public class UpdateAccountStatePort {
+
+import com.clean.architecture.hexagonal.account.domain.Account;
+
+public interface UpdateAccountStatePort {
+
+    void updateActivities(Account account);
 
 }

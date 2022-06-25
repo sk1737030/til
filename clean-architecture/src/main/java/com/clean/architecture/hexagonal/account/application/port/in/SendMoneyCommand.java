@@ -5,10 +5,10 @@ import com.clean.architecture.hexagonal.account.domain.Account;
 import com.clean.architecture.hexagonal.account.domain.Money;
 import com.sun.istack.NotNull;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
+import lombok.Value;
 
-import static java.util.Objects.requireNonNull;
-
+@Value
+@EqualsAndHashCode
 public class SendMoneyCommand extends SelfValidating<SendMoneyCommand> {
 
     @NotNull

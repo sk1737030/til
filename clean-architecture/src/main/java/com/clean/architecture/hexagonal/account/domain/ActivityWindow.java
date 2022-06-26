@@ -1,14 +1,13 @@
 package com.clean.architecture.hexagonal.account.domain;
 
 
+import lombok.NonNull;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
-import lombok.NonNull;
 
 /**
  * A window of account activities.
@@ -18,7 +17,7 @@ public class ActivityWindow {
     /**
      * The list of account activities within this window.
      */
-    private List<Activity> activities;
+    private final List<Activity> activities;
 
     /**
      * The timestamp of the first activity within this window.

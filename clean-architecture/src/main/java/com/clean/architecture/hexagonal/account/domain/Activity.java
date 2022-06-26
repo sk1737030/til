@@ -1,12 +1,10 @@
 package com.clean.architecture.hexagonal.account.domain;
 
-import java.time.LocalDateTime;
-
-
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
+import java.time.LocalDateTime;
 
 /**
  * A money transfer activity between {@link Account}s.

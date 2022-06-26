@@ -1,12 +1,11 @@
 package com.clean.architecture.hexagonal.account.domain;
 
-import java.time.LocalDateTime;
-import java.util.Optional;
-
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Value;
+import java.time.LocalDateTime;
+import java.util.Optional;
 
 /**
  * An account that holds a certain amount of money. An {@link Account} object only contains a window of the latest account activities. The total

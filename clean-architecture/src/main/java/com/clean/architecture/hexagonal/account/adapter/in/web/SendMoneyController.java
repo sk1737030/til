@@ -1,9 +1,5 @@
 package com.clean.architecture.hexagonal.account.adapter.in.web;
 
-import com.clean.architecture.hexagonal.account.application.port.in.CreateAccountUseCase;
-import com.clean.architecture.hexagonal.account.application.port.in.GetAccountBalanceQuery;
-import com.clean.architecture.hexagonal.account.application.port.in.ListAccountQuery;
-import com.clean.architecture.hexagonal.account.application.port.in.LoadAccountQuery;
 import com.clean.architecture.hexagonal.account.application.port.in.SendMoneyCommand;
 import com.clean.architecture.hexagonal.account.application.port.in.SendMoneyUseCase;
 import com.clean.architecture.hexagonal.account.domain.Account;

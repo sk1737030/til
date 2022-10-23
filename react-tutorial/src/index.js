@@ -10,12 +10,40 @@ function NormalSquare(props) {
     );
 }
 
+
 function WinKeyPointSquare(props) {
     return (
         <button className="square square-win-key-point" onClick={props.onClick}>
             {props.value}
         </button>
     );
+}
+
+function AscendingMoves(props) {
+    return (
+        <button className="moves-sort-btn" onClick={() => props.onClick("asc")}>
+            내림차순
+        </button>
+    );
+}
+
+function DescendingMoves(props) {
+    return (
+        <button className="moves-sort-btn" onClick={() => props.onClick("desc")}>
+            오름차순
+        </button>
+    );
+}
+
+class MovesBoard extends React.Component {
+    render() {
+        return (
+            <div>
+                {AscendingMoves(this.props)}
+                {DescendingMoves(this.props)}
+            </div>
+        );
+    }
 }
 
 class Board extends React.Component {
@@ -77,6 +105,7 @@ class Game extends React.Component {
                 lastX: null,
                 lastY: null,
             }],
+            sortDirection: null,
             stepNumber: 0,
             xIsNext: true,
         }
@@ -103,6 +132,15 @@ class Game extends React.Component {
         });
     }
 
+    sortClick(sortOption) {
+        const history = this.state.history.slice(0, this.state.stepNumber + 1);
+
+        console.log(history);
+        this.setState({
+            sortDirection: sortOption
+        })
+    }
+
     jumpTo(step) {
         this.setState({
             stepNumber: step,
@@ -115,8 +153,10 @@ class Game extends React.Component {
         const current = history[this.state.stepNumber];
         const winner = calculateWinner(current.squares);
         const isDraw = calculateDraw(current.squares);
+        const sortDirection = this.state.sortDirection;
 
-        const moves = history.map((step, move) => {
+        let moves = history.map((step, move) => {
+            console.log(move);
             const desc = move ? 'Go to move #' + move : 'Go to game start';
             const lastXYDesc = move ? ' Last X :' + history[move].lastX + ' Last Y : ' + history[move].lastY : "";
 
@@ -128,6 +168,13 @@ class Game extends React.Component {
                 </li>
             )
         });
+
+        if (sortDirection === 'desc') {
+            moves.reverse();
+        } else {
+            moves.sort();
+        }
+
 
         let status;
 
@@ -153,6 +200,12 @@ class Game extends React.Component {
                 <div className={"game-info"}>
                     <div>{status}</div>
                     <div>{moves}</div>
+                </div>
+
+                <div className={"sort-board"}>
+                    <MovesBoard
+                        onClick={(sortOption) => this.sortClick(sortOption)}
+                    />
                 </div>
             </div>
         )

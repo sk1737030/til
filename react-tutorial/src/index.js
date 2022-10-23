@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-function Square(props) {
+function NormalSquare(props) {
     return (
         <button className="square" onClick={props.onClick}>
             {props.value}
@@ -10,13 +10,33 @@ function Square(props) {
     );
 }
 
+function WinKeyPointSquare(props) {
+    return (
+        <button className="square square-win-key-point" onClick={props.onClick}>
+            {props.value}
+        </button>
+    );
+}
+
 class Board extends React.Component {
     renderSquare(i, x, y) {
-        return <Square
-            key={i}
-            value={this.props.squares[i]}
-            onClick={() => this.props.onClick(i, x, y)}
-        />;
+        const squares = this.props.squares;
+
+        const numbers = winKeyPoint(squares);
+
+        if (numbers !== null && numbers.includes(i)) {
+            return <WinKeyPointSquare
+                key={i}
+                value={this.props.squares[i]}
+                onClick={() => this.props.onClick(i, x, y)}
+            />;
+        } else {
+            return <NormalSquare
+                key={i}
+                value={this.props.squares[i]}
+                onClick={() => this.props.onClick(i, x, y)}
+            />;
+        }
     }
 
     makeBoard(index, j) {
@@ -159,6 +179,29 @@ function calculateWinner(squares) {
     }
 
     return null;
+}
+
+function winKeyPoint(squares) {
+    const lines = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+    ];
+
+    for (const element of lines) {
+        const [a, b, c] = element;
+        if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+            return element;
+        }
+    }
+
+    return null;
+
 }
 
 function calculateDraw(squares) {

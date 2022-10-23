@@ -36,7 +36,7 @@ ol, ul {
     width: 34px;
 }
 
-.square.winner {
+.square-win-key-point {
     background: red;
 }
 

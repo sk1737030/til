@@ -17,4 +17,5 @@ include 'bumgun-tdd'
 include 'my-xunit'
 include 'simple-concurrenthashmap'
 include 'springboot-with-react-example'
+include 'transactional'
 

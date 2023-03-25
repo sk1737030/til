@@ -15,7 +15,7 @@ import org.springframework.http.HttpStatus;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 class RestAssuredApplicationTests {
 
   protected static RequestSpecification REQUEST_SPEC;
@@ -27,7 +27,7 @@ class RestAssuredApplicationTests {
   public void setRequestSpec() {
     RequestSpecBuilder reqBuilder = new RequestSpecBuilder();
     reqBuilder.setContentType(ContentType.JSON);
-    reqBuilder.setPort(port);
+    reqBuilder.setPort(8080);
     REQUEST_SPEC = reqBuilder.build();
   }
 
@@ -36,11 +36,11 @@ class RestAssuredApplicationTests {
     ExtractableResponse<Response> actualResponse =
         RestAssured.
             given().
-              spec(REQUEST_SPEC).log().all().
+            spec(REQUEST_SPEC).log().all().
             when().
-              get("/order/{orderId}", 1L).
+            get("/order/{orderId}", 1L).
             then().
-              log().all().extract();
+            log().all().extract();
 
     assertThat(actualResponse.statusCode()).isEqualTo(HttpStatus.OK.value());
     assertThat(actualResponse.jsonPath().getObject(".", OrderController.OrderResponse.class)).isEqualTo(new OrderController.OrderResponse(1L, 10000L, 1000L));

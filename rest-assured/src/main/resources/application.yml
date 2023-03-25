@@ -1,1 +1,3 @@
-
+other:
+  client:
+    url: localhost:8080

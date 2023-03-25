@@ -1,5 +1,6 @@
 package dgle.restassured.presentation;
 
+import dgle.restassured.other.client.OtherOrderClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,9 +13,16 @@ import java.util.Objects;
 @RequestMapping("/order")
 public class OrderController {
 
-  @GetMapping("{orderId}")
+  private final OtherOrderClient otherOrderClient;
+
+  public OrderController(OtherOrderClient otherOrderClient) {
+    this.otherOrderClient = otherOrderClient;
+  }
+
+  @GetMapping("/{orderId}")
   public ResponseEntity<OrderResponse> getOrder(@PathVariable Long orderId) {
-    return ResponseEntity.ok(new OrderResponse(orderId, 10000L, 1000L));
+    Long amount = otherOrderClient.orderAmount(orderId);
+    return ResponseEntity.ok(new OrderResponse(orderId, amount, 1000L));
   }
 
   public static class OrderResponse {

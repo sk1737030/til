@@ -19,6 +19,11 @@ public class OrderController {
     this.otherOrderClient = otherOrderClient;
   }
 
+  @GetMapping
+  String hello() {
+    return "ok";
+  }
+
   @GetMapping("/{orderId}")
   public ResponseEntity<OrderResponse> getOrder(@PathVariable Long orderId) {
     Long amount = otherOrderClient.orderAmount(orderId);

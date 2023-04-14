@@ -1,7 +1,7 @@
 spring:
   batch:
     job:
-      names: ${job.name:NONE}
+      names: ${job.names:chunkTestJob}
     jdbc:
       initialize-schema: ALWAYS
   datasource:
@@ -11,3 +11,22 @@ spring:
     password: password1234
   jpa:
     show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          batch_size: 100
+  profiles:
+    active: local
+logging:
+  level:
+    org.hibernate.engine.jdbc.batch.internal.BatchingBatch: debug
+    jdbc.sqlonly: debug
+    org:
+      hibernate:
+        engine:
+          jdbc:
+            batch:
+              internal:
+                BatchingBatch: trace
+

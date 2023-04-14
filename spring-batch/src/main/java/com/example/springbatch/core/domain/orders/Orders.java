@@ -9,10 +9,11 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @AllArgsConstructor
-@Entity
+@Entity(name = "orders")
 @NoArgsConstructor
 @Getter
 @ToString
+@Setter
 public class Orders {
 
   @Id

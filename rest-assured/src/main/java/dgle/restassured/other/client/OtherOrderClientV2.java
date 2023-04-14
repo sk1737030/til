@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient(
     name = "orderV2",
-    url = "http://localhost:8080/v2/other-client"
+    url = "http://localhost:9090/v2/other-client"
 )
 public interface OtherOrderClientV2 {
 

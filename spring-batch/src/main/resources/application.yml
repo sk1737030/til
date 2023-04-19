@@ -15,7 +15,7 @@ spring:
       hibernate:
         format_sql: true
         jdbc:
-          batch_size: 100
+          batch_size: 10
   profiles:
     active: local
 logging:

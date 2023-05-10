@@ -1,0 +1,15 @@
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+        #dialect: org.hibernate.dialectg.H2Dialect
+    database-platform: org.hibernate.dialect.H2Dialect
+  datasource:
+    url: "jdbc:h2:~/testsa;MODE=MYSQL;DB_CLOSE_DELAY=-1"
+    driver-class-name: org.h2.Driver
+    username: sa

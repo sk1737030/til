@@ -36,5 +36,5 @@ openapi3 {
 //    tagDescriptionsPropertiesFile = 'src/docs/tag-descriptions.yaml'
     version = '0.1.0'
     format = 'yaml'
-    outputDirectory = "src/main/resources/"
+    outputDirectory = "src/main/resources/static"
 }

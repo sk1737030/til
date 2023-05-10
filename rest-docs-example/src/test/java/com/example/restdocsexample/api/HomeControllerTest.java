@@ -33,6 +33,7 @@ class HomeControllerTest {
           ResourceSnippetParameters.builder()
             .description("check")
             .responseFields(fieldWithPath("ok").description("ok"))
+            .responseFields(fieldWithPath("ok2").description("ok"))
             .build()
         )
       ));

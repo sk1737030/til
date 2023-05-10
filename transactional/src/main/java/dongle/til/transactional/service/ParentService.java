@@ -15,10 +15,25 @@ public class ParentService {
   }
 
   @Transactional
-  void parentExecute() {
+  public void parentExecute() {
     repository.save(new Order("test"));
     childService.childExecute();
     repository.save(new Order("test2"));
+  }
+
+  @Transactional
+  public void callInternalMethod() {
+
+    saveAndThrow();
+  }
+
+  private void saveAndThrow() {
+    repository.save(new Order("test"));
+    saveAndThrow2();
+  }
+
+  public void saveAndThrow2() {
+    throw new RuntimeException();
   }
 
 }

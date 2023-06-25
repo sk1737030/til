@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.5.6'
+        springBootVersion = '2.3.0.RELEASE'
     }
 
     repositories {
@@ -37,6 +37,7 @@ subprojects {
         developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
     }
+
     test {
         useJUnitPlatform()
     }

@@ -35,12 +35,11 @@ public class WebClientConfig {
     ConnectionProvider provider = ConnectionProvider.builder("provider")
       .maxConnections(connectMax)
       .pendingAcquireTimeout(Duration.ofMillis(acquireTimeout))
+      .lifo()
+      .maxIdleTime(Duration.ofMinutes(58))
+      .maxLifeTime(Duration.ofMinutes(58))
       .build();
 
-    /**
-     * HttpClient timeout 지정
-     * @return
-     */
     HttpClient httpClient = HttpClient.create(provider)
       .compress(true)
       .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, connectTimeout)

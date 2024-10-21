@@ -14,8 +14,16 @@ public class ChildService {
   }
 
   @Transactional(propagation = Propagation.REQUIRES_NEW)
-  void childExecute() {
+  public void childExecute() {
+    repository.save(new Order("child"));
     throw new RuntimeException();
   }
+
+  //  @Transactional
+  public void childExecute2() {
+    repository.save(new Order("child2"));
+    throw new RuntimeException();
+  }
+
 
 }

@@ -20,7 +20,7 @@ class TransactionalApplicationTests {
   @Test
   void contextLoads() {
     try {
-      parentService.callInternalMethod();
+      parentService.parentExecute();
     } catch (Exception e) {
 
     }

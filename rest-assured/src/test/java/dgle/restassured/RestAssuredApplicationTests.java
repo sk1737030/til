@@ -34,13 +34,13 @@ class RestAssuredApplicationTests {
   @Test
   void getOrder() {
     ExtractableResponse<Response> actualResponse =
-        RestAssured.
-            given().
-            spec(REQUEST_SPEC).log().all().
-            when().
-            get("/order/{orderId}", 1L).
-            then().
-            log().all().extract();
+      RestAssured.
+        given().
+        spec(REQUEST_SPEC).log().all().
+        when().
+        get("/order/{orderId}", 1L).
+        then().
+        log().all().extract();
 
     assertThat(actualResponse.statusCode()).isEqualTo(HttpStatus.OK.value());
     assertThat(actualResponse.jsonPath().getObject(".", OrderController.OrderResponse.class)).isEqualTo(new OrderController.OrderResponse(1L, 10000L, 1000L));
@@ -49,13 +49,13 @@ class RestAssuredApplicationTests {
   @Test
   void getOrderV2() {
     ExtractableResponse<Response> actualResponse =
-        RestAssured.
-            given().
-            spec(REQUEST_SPEC).log().all().
-            when().
-            get("/v2/order/{orderId}", 1L).
-            then().
-            log().all().extract();
+      RestAssured.
+        given().
+        spec(REQUEST_SPEC).log().all().
+        when().
+        get("/v2/order/{orderId}", 1L).
+        then().
+        log().all().extract();
 
     assertThat(actualResponse.statusCode()).isEqualTo(HttpStatus.OK.value());
     assertThat(actualResponse.jsonPath().getObject(".", OrderController.OrderResponse.class)).isEqualTo(new OrderController.OrderResponse(1L, 10000L, 1000L));

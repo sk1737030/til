@@ -20,4 +20,6 @@ include 'simple-concurrenthashmap'
 include 'springboot-with-react-example'
 include 'transactional'
 include 'rest-assured'
-include 'rest-docs-example'
+include 'outbox-example'
+include 'coupon-best-comination'
+

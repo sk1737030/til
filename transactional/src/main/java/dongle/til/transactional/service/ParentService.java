@@ -17,13 +17,17 @@ public class ParentService {
   @Transactional
   public void parentExecute() {
     repository.save(new Order("test"));
-    childService.childExecute();
-    repository.save(new Order("test2"));
+
+    try {
+      childService.childExecute();
+    } catch (Exception e) {
+      childService.childExecute2();
+    }
+
   }
 
   @Transactional
   public void callInternalMethod() {
-
     saveAndThrow();
   }
 

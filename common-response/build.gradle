@@ -28,7 +28,7 @@ dependencies {
 }
 
 openapi3 {
-    server = 'https://api.exmaple.io'
+    server = 'https://api.example.io'
     title = 'OPEN-API'
     description = 'OPEN API'
     version = '0.1.0'

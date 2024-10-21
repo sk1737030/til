@@ -1,13 +1,13 @@
-package com.example.restdocsexample;
+package com.example.outboxexample;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RestDocsExampleApplication {
+public class OutboxExampleApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(RestDocsExampleApplication.class, args);
+    SpringApplication.run(OutboxExampleApplication.class, args);
   }
 
 }

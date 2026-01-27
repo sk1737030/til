@@ -11,10 +11,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web-services'
     /* WebClient */
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
-    implementation "io.projectreactor:reactor-core:3.4.5"
-    implementation group: 'io.projectreactor.netty', name: 'reactor-netty', version: '1.0.6'
-    implementation group: 'io.netty', name: 'netty-codec-http2', version: '4.1.35.Final'
-    implementation 'io.projectreactor.netty:reactor-netty-http:1.0.6'
+    implementation "io.projectreactor:reactor-core:3.5.0"
+    implementation group: 'io.projectreactor.netty', name: 'reactor-netty', version: '1.0.39'
+    implementation group: 'io.netty', name: 'netty-codec-http2', version: '4.1.100.Final'
+    implementation 'io.projectreactor.netty:reactor-netty-http:1.0.39'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

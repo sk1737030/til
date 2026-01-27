@@ -15,7 +15,7 @@ ext {
 
 dependencyManagement {
     imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:2020.0.3"
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:2021.0.8"
     }
 }
 
@@ -31,6 +31,6 @@ dependencies {
 }
 
 tasks.named('test') {
-    outputs.dir snippetsDir
-    useJUnitPlatform()
+//    outputs.dir snippetsDir
+//    useJUnitPlatform()
 }

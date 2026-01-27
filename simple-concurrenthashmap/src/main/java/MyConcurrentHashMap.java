@@ -1,10 +1,8 @@
-import sun.misc.Unsafe;
-
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 
 /**
  * Linear tables
@@ -13,20 +11,16 @@ import java.util.Objects;
  * @param <V>
  */
 public class MyConcurrentHashMap<K, V> {
-    private final Unsafe U;
+    @SuppressWarnings("rawtypes")
+    private static final AtomicReferenceFieldUpdater<Entry, Object> VALUE_UPDATER =
+            AtomicReferenceFieldUpdater.newUpdater(Entry.class, Object.class, "value");
+
     private final List<List<Entry<K, V>>> entries;
     public static final int INIT_BUCKET_SIZE = 16;
     private int size = 0;
 
     public MyConcurrentHashMap() {
         entries = new ArrayList<>();
-        try {
-            Field f = Unsafe.class.getDeclaredField("theUnsafe");
-            f.setAccessible(true);
-            U = (Unsafe) f.get(null);
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     public int size() {
@@ -54,8 +48,9 @@ public class MyConcurrentHashMap<K, V> {
         return null;
     }
 
+    @SuppressWarnings("unchecked")
     private boolean compareAndSwap(Entry<K, V> kvEntry, int hash, K key, V value) {
-        return U.compareAndSwapObject(kvEntry, 0, null, new MyConcurrentHashMap.Entry<>(hash, key, value));
+        return VALUE_UPDATER.compareAndSet(kvEntry, null, value);
     }
 
     public V remove(Object key) {
@@ -67,7 +62,7 @@ public class MyConcurrentHashMap<K, V> {
 
         final int hash;
         private final K key;
-        private V value;
+        private volatile V value;
 
         public Entry(int hash, K key, V value) {
             this.hash = hash;

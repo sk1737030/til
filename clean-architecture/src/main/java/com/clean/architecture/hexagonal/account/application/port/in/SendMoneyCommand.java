@@ -3,7 +3,7 @@ package com.clean.architecture.hexagonal.account.application.port.in;
 import com.clean.architecture.hexagonal.account.common.SelfValidating;
 import com.clean.architecture.hexagonal.account.domain.Account;
 import com.clean.architecture.hexagonal.account.domain.Money;
-import com.sun.istack.NotNull;
+import javax.validation.constraints.NotNull;
 import lombok.EqualsAndHashCode;
 import lombok.Value;
 

@@ -1,5 +1,20 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm'
+    id 'application'
+}
+
+configurations {
+    compileOnly.exclude group: 'org.projectlombok', module: 'lombok'
+    annotationProcessor.exclude group: 'org.projectlombok', module: 'lombok'
+}
+
+// Disable Spring Boot plugin inherited from root
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
 }
 
 group = 'org.example'
@@ -11,11 +26,18 @@ repositories {
 
 dependencies {
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.7.10"
+}
+
+application {
+    mainClass = 'org.example.MainKt'
 }
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
 }
 
 test {

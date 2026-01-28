@@ -11,7 +11,7 @@ This is a "Today I Learned" (TIL) repository containing multiple independent Jav
 **Gradle Multi-Project Build**
 - Gradle version: 7.6.3
 - Root project configured in `build.gradle` with shared dependencies
-- All subprojects inherit common configuration (Spring Boot 2.3.0.RELEASE, Java 11, Lombok)
+- All subprojects inherit common configuration (Spring Boot 2.7.18, Java 17, Lombok)
 - Each subproject has its own `build.gradle` that can override or extend the base configuration
 
 ## Common Commands
@@ -68,7 +68,7 @@ The repository contains 30+ independent modules organized by topic:
 **Spring Boot Projects** (most subprojects)
 - Standard Spring Boot structure: `src/main/java`, `src/test/java`
 - Configuration in `application.properties` or `application.yml`
-- Inherit from root `build.gradle` (Spring Boot 2.3.0.RELEASE, Java 11)
+- Inherit from root `build.gradle` (Spring Boot 2.7.18, Java 17)
 
 **Key Technology Areas:**
 - **JPA/Database**: `til-jpa`, `transactional`, `outbox-example`

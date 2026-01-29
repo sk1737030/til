@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+payment:
+  queue:
+    max-size: 10000                     # 대기열 최대 크기
+    max-active: 1000                    # 동시 결제 진행 최대 인원
+    admission-rate: 5                   # 회차당 입장 인원
+    admission-interval-ms: 2000         # 입장 처리 주기 (2초)
+    token-ttl-minutes: 10               # 토큰 유효 시간
+    avg-processing-seconds: 60          # 평균 결제 소요 시간 (예상 대기 시간 계산용)
+
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    timeout: 2000ms
+    lettuce:
+      pool:
+        max-active: 20
+        max-idle: 10
+        min-idle: 5
+
+  data:
+    redis:
+      repositories:
+        enabled: false                  # Redis Repository 사용 안 함
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  metrics:
+    export:
+      simple:
+        enabled: true

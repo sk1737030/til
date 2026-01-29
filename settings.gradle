@@ -32,3 +32,4 @@ include 'outbox-example'
 include 'coupon-best-comination'
 
 include 'cradle-kotlin'
+include 'payment-queue'

@@ -1,0 +1,51 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.7.10'
+    id 'org.jetbrains.kotlin.plugin.spring' version '1.7.10'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Spring Boot
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    // Kotlin
+    implementation 'org.jetbrains.kotlin:kotlin-reflect'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
+
+    // Redisson (분산 락)
+    implementation 'org.redisson:redisson-spring-boot-starter:3.23.5'
+
+    // Lombok (Kotlin에서는 불필요하지만 혹시나 Java 코드 사용 시)
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // Test
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.testcontainers:testcontainers:1.19.1'
+    testImplementation 'org.testcontainers:junit-jupiter:1.19.1'
+    testImplementation 'com.redis:testcontainers-redis:2.0.1'
+    testImplementation 'io.mockk:mockk:1.13.5'
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile) {
+    kotlinOptions {
+        freeCompilerArgs = ['-Xjsr305=strict']
+        jvmTarget = '17'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

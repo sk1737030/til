@@ -7,10 +7,10 @@ import org.redisson.api.RLock
  */
 interface QueueLockPort {
 
-    /**
-     * 분산 락 획득
-     * @param lockKey 락 키
-     * @return RLock 인스턴스
-     */
-    fun getLock(lockKey: String): RLock
+  /**
+   * 분산 락 획득
+   * @param lockKey 락 키
+   * @return RLock 인스턴스
+   */
+  fun getLock(lockKey: String): RLock
 }

@@ -10,5 +10,5 @@ import org.springframework.boot.runApplication
 class PaymentQueueApplication
 
 fun main(args: Array<String>) {
-    runApplication<PaymentQueueApplication>(*args)
+  runApplication<PaymentQueueApplication>(*args)
 }

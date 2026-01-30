@@ -16,7 +16,7 @@ import java.util.*
 @Component
 class RedisQueueAdapter(
   private val redisTemplate: StringRedisTemplate,
-  private val enqueueScript: RedisScript<List<Any>>,
+  private val enqueueScript: RedisScript<List<*>>,
   private val admitUsersScript: RedisScript<List<*>>,
   private val getPositionScript: RedisScript<Long>,
   private val completeScript: RedisScript<Long>,

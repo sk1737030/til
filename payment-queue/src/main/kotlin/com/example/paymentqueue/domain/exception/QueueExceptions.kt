@@ -13,7 +13,7 @@ class QueueFullException(message: String = "대기열이 가득 찼습니다") :
 /**
  * 이미 대기열에 존재할 때
  */
-class AlreadyInQueueException(userId: String) : QueueException("사용자 $userId는 이미 대기열에 있습니다")
+class AlreadyInQueueException(userId: String) : QueueException("사용자 ${userId}는 이미 대기열에 있습니다")
 
 /**
  * 토큰이 만료되었을 때
@@ -28,4 +28,4 @@ class InvalidTokenException(message: String = "유효하지 않은 토큰입니�
 /**
  * 대기열에서 찾을 수 없을 때
  */
-class QueueEntryNotFoundException(userId: String) : QueueException("사용자 $userId를 대기열에서 찾을 수 없습니다")
+class QueueEntryNotFoundException(userId: String) : QueueException("사용자 ${userId}를 대기열에서 찾을 수 없습니다")

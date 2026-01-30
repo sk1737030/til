@@ -18,11 +18,11 @@ class LuaScriptConfig {
    * 대기열 추가 스크립트
    */
   @Bean
-  fun enqueueScript(): RedisScript<List<Any>> {
+  fun enqueueScript(): RedisScript<List<*>> {
     return RedisScript.of(
       loadScriptAsString("scripts/enqueue.lua"),
       List::class.java  // 반환 타입
-    )
+    ) as RedisScript<List<*>>
   }
 
   /**

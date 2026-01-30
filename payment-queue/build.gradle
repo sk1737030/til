@@ -23,8 +23,8 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
     implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
 
-    // Redisson (분산 락)
-    implementation 'org.redisson:redisson-spring-boot-starter:3.23.5'
+    // Redisson (분산 락) - Spring Boot 2.7 호환 버전
+    implementation 'org.redisson:redisson-spring-boot-starter:3.17.7'
 
     // Lombok (Kotlin에서는 불필요하지만 혹시나 Java 코드 사용 시)
     compileOnly 'org.projectlombok:lombok'
